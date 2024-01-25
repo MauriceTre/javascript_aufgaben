@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kreisveränderungs-App</title>
+    <style>
+        /* Stil für den Kreis */
+        #circle {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 50%;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="circle"></div>
+
+
+    <label for="radiusInput">Radius eingeben:</label>
+    <input type="number" id="radiusInput">
+    <button onclick="changeCircleSize()">Ändern</button>
+
+    <script>
+
+        function calculateDiameter(radius) {
+            return radius * 2;
+        }
+
+
+        function changeCircleSize() {
+            var radiusInput = document.getElementById('radiusInput');
+            var circle = document.getElementById('circle');
+
+            /
+            var radius = parseFloat(radiusInput.value);
+            if (!isNaN(radius) && radius >= 0) {
+                var diameter = calculateDiameter(radius);
+
+
+                circle.style.width = diameter + 'px';
+                circle.style.height = diameter + 'px';
+            } else {
+                alert('Ungültige Eingabe. Bitte geben Sie einen nicht-negativen Radius ein.');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
